@@ -1,0 +1,39 @@
+<template lang="pug">
+	view
+		div.test__page {{name}}
+</template>
+
+<script>
+import wepy from 'wepy'
+import	{ get, post } from '@/common/fetch'
+
+export default class extends wepy.page {
+	config = {
+		navigationBarTitleText: 'test page'
+	}
+
+	data = {
+		name: 'pug template test',
+	}
+
+	init () {
+		console.log('testPage-init: ', this.$parent.$get)
+	}
+
+	onShow () {
+		this.init()
+	}
+
+	methods = {
+		
+	}
+
+}
+</script>
+
+<style lang="stylus" scoped>
+	.test__page
+		font-size 28px
+		color blue
+</style>
+
