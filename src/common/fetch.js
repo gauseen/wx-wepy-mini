@@ -7,7 +7,7 @@ export const common = function (type, url, data, options = {}) {
 		method: type,
 		url: `${api}${url}`,
 		data: data,
-		dataType: json,
+		dataType: 'json',
 		headers: {
 			'content-type': 'application/json;charset=utf-8',
 		},
@@ -17,7 +17,7 @@ export const common = function (type, url, data, options = {}) {
 		if (res.success) {
 			return res.data
 		} else {
-			res.error
+			return res.error
 		}
 	})
 }
