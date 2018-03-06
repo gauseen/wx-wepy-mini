@@ -17,7 +17,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "eslint \"src/**/*.{js, vue, wpy}\" | snazzy"
+      "pre-commit": "eslint \"src/**/*.{js, wpy, vue}\" | snazzy"
     }
   },
   "author": "gauseen",
