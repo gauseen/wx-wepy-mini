@@ -9,11 +9,16 @@
     "dev:web": "wepy build --output web",
     "clean": "find ./dist -maxdepth 1 -not -name 'project.config.json' -not -name 'dist' | xargs rm -rf",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "fix": "eslint ./src/**/*.js"
+    "fix": "eslint /src/**/*.js"
   },
   "wepy": {
     "module-a": false,
     "./src/components/list": "./src/components/wepy-list.wpy"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "eslint \"src/**/*.{js, vue, wpy}\" | snazzy"
+    }
   },
   "author": "gauseen",
   "license": "MIT",
@@ -36,6 +41,8 @@
     "eslint-plugin-html": "^2.0.1",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^2.0.1",
+    "husky": "^0.14.3",
+    "snazzy": "^7.1.1",
     "wepy-compiler-babel": "^1.5.1",
     "wepy-compiler-less": "^1.3.10",
     "wepy-compiler-pug": "^1.4.7",
