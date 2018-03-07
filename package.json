@@ -9,7 +9,7 @@
     "dev:web": "wepy build --output web",
     "clean": "find ./dist -maxdepth 1 -not -name 'project.config.json' -not -name 'dist' | xargs rm -rf",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "fix": "eslint \"src/**/*.{js, vue, wpy}\" | snazzy"
+    "fix": "eslint \"src/**/*.{js, vue, wpy}\""
   },
   "wepy": {
     "module-a": false,
@@ -17,7 +17,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "eslint \"src/**/*.{js, wpy, vue}\" | snazzy"
+      "pre-commit": "eslint \"src/**/*.{js, wpy}\""
     }
   },
   "author": "gauseen",
