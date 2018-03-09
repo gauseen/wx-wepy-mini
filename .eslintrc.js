@@ -7,6 +7,7 @@ module.exports = {
   env: {
     browser: true
   },
+  // 全局变量
   globals: {
     wx: true
   },
