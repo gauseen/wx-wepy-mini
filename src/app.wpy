@@ -19,7 +19,7 @@ export default class extends wepy.app {
 	config = {
 		pages: [
 			'pages/test',
-			'pages/pay/index'
+			'pages/pay/index',
 		],
 		window: {
 			backgroundTextStyle: 'light',
