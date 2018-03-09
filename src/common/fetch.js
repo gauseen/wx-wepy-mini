@@ -15,9 +15,9 @@ export const common = function (type, url, data, options = {}) {
 
 	return wepy.request(config).then(res => {
 		if (res.success) {
-			return res.data
+			return Promise.resolve(res.data)
 		} else {
-			return res.error
+			return Promise.reject(res.error)
 		}
 	})
 }

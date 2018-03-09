@@ -12,13 +12,14 @@
 <script>
 import wepy from 'wepy'
 import 'wepy-async-function'
-import fetch from '@/common/fetch'
+import fetch from 'src/common/fetch'
 console.log('wepy.app', wepy)
 
 export default class extends wepy.app {
 	config = {
 		pages: [
 			'pages/test',
+			'pages/pay/index'
 		],
 		window: {
 			backgroundTextStyle: 'light',

@@ -1,0 +1,68 @@
+<template lang="pug">
+</template>
+
+<script>
+import wepy from 'wepy'
+import { parseUrl } from 'src/common/fetch'
+
+export default class extends wepy.page {
+	config = {
+		navigationBarTitleText: '支付中',
+	}
+
+	data = {
+		state: -1,
+	}
+
+	pageData = {
+		params: {},
+	}
+
+	onShow () {
+		this.pageData = parseUrl()
+		onPayment(this.pageData)
+	}
+
+	onPayment (data) {
+		const params = {
+			'timeStamp': `${data.timeStamp}`,
+			'nonceStr': data.nonceStr,
+			'package': data.package,
+			'signType': 'MD5',
+			'paySign': data.paySign,
+			success: function(res){
+				const isSuccess = res === 'requestPayment:ok'
+				if (isSuccess && data.redirect) {
+					window.setTimeout(() => {
+						wepy.redirectTo({
+							url: data.redirect,
+						})
+					}, 1500)
+				}
+			},
+			fail: function(res){
+				const isCancel = res === 'requestPayment:fail cancel'
+				if (isCancel && data.cancelPayRedirect) {	// 支付失败，返回指定页面
+					window.setTimeout(() => {
+						wepy.redirectTo({
+							url: data.cancelPayRedirect,
+						})
+					}, 1500);
+				} else {									// 支付失败，默认返回上一页
+					window.alert(res)
+					wepy.navigateBack({
+						delta: data.delta || 1,
+					})
+				}
+			}
+		}
+
+		wx.requestPayment(params)
+	}
+
+}
+</script>
+
+<style lang="stylus" scoped>
+
+</style>
