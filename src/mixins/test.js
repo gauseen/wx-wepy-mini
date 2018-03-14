@@ -14,7 +14,7 @@ export default class testMixin extends wepy.mixin {
 		console.log('mixin onShow')
 	}
 
-	onLoad() {
+	onLoad () {
 		console.log('mixin onLoad')
 	}
 }
