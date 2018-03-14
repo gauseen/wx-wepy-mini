@@ -43,7 +43,7 @@ export default class extends wepy.app {
 		this.use('requestfix')
 	}
 
-	onLaunch() {
+	onLaunch () {
 		this.installMiddleware()
 		this.testAsync()
 	}
@@ -61,7 +61,7 @@ export default class extends wepy.app {
 		console.log(data)
 	}
 
-	getUserInfo(cb) {
+	getUserInfo (cb) {
 		const that = this
 		if (this.globalData.userInfo) {
 			return this.globalData.userInfo

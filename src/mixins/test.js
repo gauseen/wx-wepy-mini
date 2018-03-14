@@ -10,7 +10,7 @@ export default class testMixin extends wepy.mixin {
 			console.log('mixin method tap')
 		},
 	}
-	onShow() {
+	onShow () {
 		console.log('mixin onShow')
 	}
 
