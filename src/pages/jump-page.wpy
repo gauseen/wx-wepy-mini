@@ -1,0 +1,19 @@
+<template lang="pug">
+	view
+		text 跳转页面
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class extends wepy.page {
+	config = {
+		navigationBarTitleText: 'jump page',
+	}
+}
+</script>
+
+
+<style lang="stylus">
+
+</style>

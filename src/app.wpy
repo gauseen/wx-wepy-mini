@@ -20,6 +20,7 @@ export default class extends wepy.app {
 		pages: [
 			'pages/test',
 			'pages/pay/index',
+			'pages/jump-page',
 		],
 		window: {
 			backgroundTextStyle: 'light',
@@ -27,20 +28,74 @@ export default class extends wepy.app {
 			navigationBarTitleText: 'gauseen',
 			navigationBarTextStyle: 'black',
 		},
+		'tabBar': {
+			'color': '#999999',
+			'selectedColor': '#ff6a3c',
+			'backgroundColor': '#ffffff',
+			'borderStyle': 'black',
+			'list': [
+				{
+					'pagePath': 'pages/test',
+					'text': '首页',
+					'iconPath': 'images/icon_home.png',
+					'selectedIconPath': 'images/icon_home_active.png',
+				},
+				{
+					'pagePath': 'pages/test',
+					'text': '分类',
+					'iconPath': 'images/icon_classify.png',
+					'selectedIconPath': 'images/icon_classify_active.png',
+				},
+				{
+					'pagePath': 'pages/test',
+					'text': '购物车',
+					'iconPath': 'images/icon_shop_cart.png',
+					'selectedIconPath': 'images/icon_shop_cart_active.png',
+				},
+				{
+					'pagePath': 'pages/test',
+					'text': '我',
+					'iconPath': 'images/icon_info.png',
+					'selectedIconPath': 'images/icon_info_active.png',
+				},
+			],
+		},
 	}
 
 	globalData = {
 		userInfo: null,
 	}
 
-	// 安装自定义中间件
-	installMiddleware () {
-		fetch(this)
-	}
-
 	constructor () {
 		super()
 		this.use('requestfix')
+		// 拦截 request 请求
+		this.intercept('request', {
+			// 发出请求的回调函数
+			config (params) {
+				// params 请求 data
+				return params
+			},
+			// 请求成功后回调函数
+			success (params) {
+				// do success something
+				return params
+			},
+			// 请求失败回调
+			fail (params) {
+				// do error something
+				return params
+			},
+			// 请求完成时的回调函数(请求成功或失败都会被执行)
+			complete (params) {
+				console.log('request complete')
+			},
+		})
+	}
+
+	// 安装自定义中间件
+	installMiddleware () {
+		fetch(this)
 	}
 
 	onLaunch () {
