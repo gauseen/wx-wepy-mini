@@ -6,8 +6,11 @@
 			url="jump-page"
 		)
 			text jump page
-		view.test__btn(@tap="tap") click loading
-		view.test__btn(@tap="switchTabBar") click show or hidden TabBar
+		view.test__btn( @tap="tap" ) click loading
+		view.test__btn(
+			@tap="switchTabBar"
+			) click show or hidden TabBar
+			//- pug 模板 括号 ( do somethings ) 要换行或加空格
 </template>
 
 <script>
@@ -73,7 +76,7 @@ export default class extends wepy.page {
 }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 	.test__page
 		font-size: 28px
 		color: blue
