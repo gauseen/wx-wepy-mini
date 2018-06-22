@@ -1,0 +1,31 @@
+<template lang="pug">
+	view
+		input
+		text home
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class index extends wepy.page {
+	init () {
+		console.log('home wepy: ', wepy.$get)
+		console.log('home this: ', this)
+		console.log('home-init: ', this.$parent)
+	}
+
+	onLoad () {
+		this.init()
+	}
+
+	methods = {
+		test () {
+
+		},
+	}
+}
+</script>
+
+<style lang="stylus" scoped>
+
+</style>

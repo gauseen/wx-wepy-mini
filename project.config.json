@@ -1,0 +1,13 @@
+{
+  "description": "wx mp",
+  "setting": {
+    "urlCheck": true,
+    "es6": false,
+    "postcss": false,
+    "minified": false
+  },
+  "compileType": "miniprogram",
+  "appid": "touristappid",
+  "projectname": "wx mp",
+  "miniprogramRoot": "./dist"
+}

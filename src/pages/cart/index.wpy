@@ -1,0 +1,18 @@
+<template lang="pug">
+	view
+		text {{content}}
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class index extends wepy.page {
+	data = {
+		content: '购物车',
+	}
+}
+</script>
+
+<style lang="stylus" scoped>
+
+</style>
